@@ -546,9 +546,9 @@ goog.net.CrossDomainRpc.prototype.detectResponse_ = function(
 
     var responseData = chunks.join('');
     // Payload is not encoded to begin with on IE. Decode in other cases only.
-    if (!goog.userAgent.EDGE_OR_IE) {
+    //if (!goog.userAgent.EDGE_OR_IE) {
       responseData = decodeURIComponent(responseData);
-    }
+    //}
 
     this.status = Number(params.get('status'));
     this.responseText = responseData;
@@ -762,9 +762,9 @@ goog.net.CrossDomainRpc.sendResponse = function(
    * Note(*): IE actually does encode only space to %20 and decodes that
    *   automatically when you do location.href or location.hash.
    */
-  if (!goog.userAgent.EDGE_OR_IE) {
+  //if (!goog.userAgent.EDGE_OR_IE) {
     data = encodeURIComponent(data);
-  }
+  //}
 
   var numChunksToSend = Math.ceil(data.length / chunkSize);
   if (numChunksToSend == 0) {
